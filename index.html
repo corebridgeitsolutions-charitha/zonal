@@ -1,133 +1,146 @@
 <!DOCTYPE html>
 <html lang="si">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Zonal Education Office – Horana</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Zonal Education Office – Horana</title>
 
-  <style>
-    :root{
-      --gov-blue:#0b3c5d;
-      --gov-red:#8b0000;
-      --gov-gold:#d4af37;
-      --light-bg:#f4f6f8;
-    }
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    *{box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',sans-serif;}
-    body{background:var(--light-bg);color:#222;}
+<style>
+:root{
+  --gov-blue:#0b3c5d;
+  --gov-red:#8b0000;
+  --gov-gold:#d4af37;
+  --light-bg:#f4f6f8;
+}
 
-    header{background:var(--gov-blue);color:#fff;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:var(--light-bg);}
 
-    .top-bar{
-      padding:15px;
-      text-align:center;
-    }
+header{background:var(--gov-blue);color:#fff;}
 
-    .lang-switch button{
-      margin:5px;
-      padding:6px 12px;
-      border:none;
-      border-radius:4px;
-      cursor:pointer;
-      font-weight:600;
-    }
+.top-bar{
+  padding:15px;
+  text-align:center;
+}
 
-    .lang-switch button:hover{
-      background:var(--gov-gold);
-    }
+.lang-switch button{
+  margin:5px;
+  padding:6px 12px;
+  border:none;
+  border-radius:4px;
+  cursor:pointer;
+  font-weight:600;
+}
+.lang-switch button:hover{background:var(--gov-gold);}
 
-    nav{background:#06283d;}
-    nav ul{
-      list-style:none;
-      display:flex;
-      flex-wrap:wrap;
-      justify-content:center;
-    }
-    nav ul li{position:relative;}
-    nav ul li a{
-      display:block;
-      padding:14px 20px;
-      color:#fff;
-      text-decoration:none;
-    }
-    nav ul li a:hover{background:var(--gov-red);}
+/* NAVIGATION */
+nav{
+  background:#06283d;
+  position:relative;
+}
 
-    nav ul li ul{
-      position:absolute;
-      top:100%;
-      left:0;
-      background:#0b3c5d;
-      display:none;
-      min-width:200px;
-    }
-    nav ul li:hover ul{display:block;}
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  color:#fff;
+  padding:14px 20px;
+  cursor:pointer;
+}
 
-    .banner{height:320px;overflow:hidden;}
-    .banner img{width:100%;height:100%;object-fit:cover;transition:opacity 0.8s;}
+nav ul{
+  list-style:none;
+  display:flex;
+  justify-content:center;
+}
 
-    .container{padding:40px 6%;}
+nav ul li a{
+  display:block;
+  padding:14px 20px;
+  color:#fff;
+  text-decoration:none;
+}
+nav ul li a:hover{background:var(--gov-red);}
 
-    .dashboard{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-      gap:20px;
-    }
-    .card{
-      background:#fff;
-      padding:25px;
-      text-align:center;
-      border-radius:12px;
-      box-shadow:0 4px 12px rgba(0,0,0,.15);
-    }
-    .number{
-      font-size:2.2rem;
-      font-weight:bold;
-      color:var(--gov-red);
-    }
+/* BANNER */
+.banner{height:320px;overflow:hidden;}
+.banner img{width:100%;height:100%;object-fit:cover;transition:opacity .8s;}
 
-    .vision-mission{
-      margin-top:50px;
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-      gap:20px;
-    }
-    .box{
-      background:linear-gradient(135deg,var(--gov-blue),var(--gov-red));
-      color:#fff;
-      padding:25px;
-      border-radius:12px;
-    }
-    .box h2{color:var(--gov-gold);margin-bottom:10px;}
+.container{padding:40px 6%;}
 
-    .director{
-      margin-top:50px;
-      display:grid;
-      grid-template-columns:1fr 2fr;
-      gap:30px;
-      background:#fff;
-      padding:30px;
-      border-radius:12px;
-    }
-    .director img{
-      width:100%;
-      border-radius:12px;
-      border:4px solid var(--gov-blue);
-    }
+/* DASHBOARD */
+.dashboard{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:20px;
+}
+.card{
+  background:#fff;
+  padding:25px;
+  text-align:center;
+  border-radius:12px;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+.number{
+  font-size:2.2rem;
+  font-weight:bold;
+  color:var(--gov-red);
+}
 
-    footer{
-      margin-top:50px;
-      background:#06283d;
-      color:#fff;
-      padding:20px;
-      text-align:center;
-    }
+/* VISION */
+.vision-mission{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px;
+}
+.box{
+  background:linear-gradient(135deg,var(--gov-blue),var(--gov-red));
+  color:#fff;
+  padding:25px;
+  border-radius:12px;
+}
+.box h2{color:var(--gov-gold);}
 
-    @media(max-width:768px){
-      .director{grid-template-columns:1fr;}
-      nav ul{flex-direction:column;}
-    }
-  </style>
+/* DIRECTOR */
+.director{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:1fr 2fr;
+  gap:30px;
+  background:#fff;
+  padding:30px;
+  border-radius:12px;
+}
+.director img{
+  width:100%;
+  border-radius:12px;
+  border:4px solid var(--gov-blue);
+}
+
+footer{
+  margin-top:50px;
+  background:#06283d;
+  color:#fff;
+  padding:20px;
+  text-align:center;
+}
+
+/* MOBILE MENU */
+@media(max-width:768px){
+  .menu-toggle{display:block;}
+  nav ul{
+    flex-direction:column;
+    display:none;
+  }
+  nav ul.active{display:flex;}
+  .director{grid-template-columns:1fr;}
+}
+</style>
 </head>
+
 <body>
 
 <header>
@@ -143,7 +156,11 @@
   </div>
 
   <nav>
-    <ul>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+
+    <ul id="menu">
       <li><a href="#" data-i18n="home">Home</a></li>
       <li><a href="#" data-i18n="downloads">Downloads</a></li>
       <li><a href="#" data-i18n="news">News</a></li>
@@ -160,26 +177,26 @@
 
 <section class="dashboard">
   <div class="card">
-    <h3 data-i18n="students">ශිෂ්‍ය සංඛ්‍යාව</h3>
+    <h3 data-i18n="students"></h3>
     <div class="number" data-target="52000">0</div>
   </div>
   <div class="card">
-    <h3 data-i18n="schools">පාසල් සංඛ්‍යාව</h3>
+    <h3 data-i18n="schools"></h3>
     <div class="number" data-target="215">0</div>
   </div>
   <div class="card">
-    <h3 data-i18n="teachers">ගුරු සංඛ්‍යාව</h3>
+    <h3 data-i18n="teachers"></h3>
     <div class="number" data-target="4200">0</div>
   </div>
 </section>
 
 <section class="vision-mission">
   <div class="box">
-    <h2 data-i18n="vision">දැක්ම</h2>
+    <h2 data-i18n="vision"></h2>
     <p data-i18n="visionText"></p>
   </div>
   <div class="box">
-    <h2 data-i18n="mission">මෙහෙවර</h2>
+    <h2 data-i18n="mission"></h2>
     <p data-i18n="missionText"></p>
   </div>
 </section>
@@ -194,11 +211,14 @@
 
 </div>
 
-<footer>
-  © 2026 Zonal Education Office – Horana
-</footer>
+<footer>© 2026 Zonal Education Office – Horana</footer>
 
 <script>
+/* Mobile Menu */
+function toggleMenu(){
+  document.getElementById("menu").classList.toggle("active");
+}
+
 /* Counter */
 document.querySelectorAll('.number').forEach(counter=>{
   const update=()=>{
@@ -208,7 +228,7 @@ document.querySelectorAll('.number').forEach(counter=>{
     if(c<target){
       counter.innerText=Math.ceil(c+inc);
       setTimeout(update,20);
-    }else counter.innerText=target;
+    }
   };
   update();
 });
@@ -227,66 +247,30 @@ setInterval(()=>{
 },4000);
 
 /* Language */
-const t={
-si:{
-title:"හොරණ කලාප අධ්‍යාපන කාර්යාලය",
-subtitle:"Zonal Education Office – Horana",
-home:"මුල් පිටුව",
-downloads:"බාගත කිරීම්",
-news:"පුවත්",
-saviya:"සවියෙන් පෙරට",
-students:"ශිෂ්‍ය සංඛ්‍යාව",
-schools:"පාසල් සංඛ්‍යාව",
-teachers:"ගුරු සංඛ්‍යාව",
-vision:"දැක්ම",
-visionText:"ගුණාත්මක, සමාන හා දිරවාගත හැකි අධ්‍යාපන පද්ධතියක් ගොඩනැගීම.",
-mission:"මෙහෙවර",
-missionText:"ශිෂ්‍ය, ගුරු හා පාසල් ප්‍රජාව ශක්තිමත් කරමින් අධ්‍යාපන ගුණාත්මකභාවය උසස් කිරීම.",
-directorMsg:"කලාප අධ්‍යාපන අධ්‍යක්ෂගේ පණිවිඩය",
-directorText:"හොරණ කලාපයේ සියලුම පාසල් එකමුතුවෙන් ඉදිරියට ගෙන යාම අපගේ ප්‍රධාන අරමුණයි."
-},
-en:{
-title:"Zonal Education Office – Horana",
-subtitle:"Ministry of Education – Sri Lanka",
-home:"Home",
-downloads:"Downloads",
-news:"News",
-saviya:"Forward with Strength",
-students:"Number of Students",
-schools:"Number of Schools",
-teachers:"Number of Teachers",
-vision:"Vision",
-visionText:"To build a quality, equitable and sustainable education system.",
-mission:"Mission",
-missionText:"Improving education quality by empowering students, teachers and schools.",
-directorMsg:"Message from the Zonal Director",
-directorText:"Our main objective is to provide quality education by working together with all schools in the Horana zone."
-},
-ta:{
-title:"ஹொரண கல்வி வலய அலுவலகம்",
-subtitle:"கல்வி அமைச்சு – இலங்கை",
-home:"முகப்பு",
-downloads:"பதிவிறக்கங்கள்",
-news:"செய்திகள்",
-saviya:"வலிமையுடன் முன்னே",
-students:"மாணவர் எண்ணிக்கை",
-schools:"பள்ளிகள் எண்ணிக்கை",
-teachers:"ஆசிரியர் எண்ணிக்கை",
-vision:"நோக்கம்",
-visionText:"தரமான, சமமான மற்றும் நிலையான கல்வி அமைப்பை உருவாக்குதல்.",
-mission:"பணி",
-missionText:"மாணவர்கள், ஆசிரியர்கள் மற்றும் பள்ளிகளை வலுப்படுத்தி கல்வித் தரத்தை உயர்த்துதல்.",
-directorMsg:"வலய கல்வி இயக்குனரின் செய்தி",
-directorText:"ஹொரண வலயத்தின் அனைத்து பள்ளிகளுடனும் இணைந்து தரமான கல்வியை வழங்குவது எங்கள் இலக்காகும்."
-}
-};
+const t={ si:{title:"හොරණ කලාප අධ්‍යාපන කාර්යාලය",subtitle:"Zonal Education Office – Horana",
+home:"මුල් පිටුව",downloads:"බාගත කිරීම්",news:"පුවත්",saviya:"සවියෙන් පෙරට",
+students:"ශිෂ්‍ය සංඛ්‍යාව",schools:"පාසල් සංඛ්‍යාව",teachers:"ගුරු සංඛ්‍යාව",
+vision:"දැක්ම",visionText:"ගුණාත්මක අධ්‍යාපන පද්ධතියක් ගොඩනැගීම.",
+mission:"මෙහෙවර",missionText:"ශිෂ්‍ය හා ගුරු ප්‍රජාව ශක්තිමත් කිරීම.",
+directorMsg:"කලාප අධ්‍යක්ෂගේ පණිවිඩය",directorText:"සියලු පාසල් එකමුතුවෙන් ඉදිරියට."},
+en:{title:"Zonal Education Office – Horana",subtitle:"Ministry of Education – Sri Lanka",
+home:"Home",downloads:"Downloads",news:"News",saviya:"Forward with Strength",
+students:"Students",schools:"Schools",teachers:"Teachers",
+vision:"Vision",visionText:"Quality and equitable education system.",
+mission:"Mission",missionText:"Empowering schools and teachers.",
+directorMsg:"Director's Message",directorText:"Working together for quality education."},
+ta:{title:"ஹொரண கல்வி வலய அலுவலகம்",subtitle:"கல்வி அமைச்சு – இலங்கை",
+home:"முகப்பு",downloads:"பதிவிறக்கங்கள்",news:"செய்திகள்",saviya:"முன்னே",
+students:"மாணவர்கள்",schools:"பள்ளிகள்",teachers:"ஆசிரியர்கள்",
+vision:"நோக்கம்",visionText:"தரமான கல்வி அமைப்பு.",
+mission:"பணி",missionText:"கல்வித் தரத்தை உயர்த்துதல்.",
+directorMsg:"இயக்குனரின் செய்தி",directorText:"ஒற்றுமையுடன் செயல்படுதல்."}};
 
 function setLanguage(l){
   document.querySelectorAll('[data-i18n]').forEach(e=>{
     e.innerText=t[l][e.dataset.i18n];
   });
 }
-
 setLanguage('si');
 </script>
 
